@@ -1,1 +1,31 @@
+# macOS
 .DS_Store
+
+# build output
+**/build/
+**/Debug/
+**/Release/
+
+# debug symbols (macOS / lldb)
+**/*.dSYM/
+**/*.plist
+**/*.yaml
+
+# object / binary files
+**/*.o
+**/*.out
+**/*.exe
+**/*.a
+**/*.so
+
+# 실행 파일들
+**/Q1_A_LL
+**/Q2_A_LL
+**/Q3_A_LL
+**/Q4_A_LL
+**/Q5_A_LL
+**/Q6_A_LL
+**/Q7_A_LL
+
+# 필요하면 vscode 설정은 제외 가능
+# .vscode/
