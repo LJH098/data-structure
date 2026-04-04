@@ -7,6 +7,7 @@ Purpose: Implementing the required functions for Question 1 */
 //////////////////////////////////////////////////////////////////////////////////
 
 #include <stdio.h>
+
 #include <stdlib.h>
 
 //////////////////////////////////////////////////////////////////////////////////
@@ -90,7 +91,22 @@ int main()
 
 int insertSortedLL(LinkedList *ll, int item)
 {
-	/* add your code here */
+	if(ll == NULL)
+		return -1;
+
+	ListNode *cur = ll -> head;
+	int index = 0;
+
+	while (cur != NULL) {
+		if(cur->item > item) {
+			insertNode(ll, index, item);
+			return index;
+		}
+		cur = cur->next;
+		index++;
+	}
+	insertNode(ll, index, item);
+	return index;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
