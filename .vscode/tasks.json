@@ -1,50 +1,62 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "type": "shell",
-            "label": "C/C++: gcc build active file",
-            "command": "/usr/bin/gcc",
-            "args": [
-                "-g",
-                "${file}",
-                "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
-            ],
-            "options": {
-                "cwd": "${fileDirname}"
-            },
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "group": {
-                "kind": "build",
-                "isDefault": false
-            },
-            "detail": "컴파일러: /usr/bin/gcc"
-        },
-        {
-            "type": "cppbuild",
-            "label": "C/C++: gcc 활성 파일 빌드",
-            "command": "/usr/bin/gcc",
-            "args": [
-                "-fdiagnostics-color=always",
-                "-g",
-                "${file}",
-                "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
-            ],
-            "options": {
-                "cwd": "${fileDirname}"
-            },
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "detail": "디버거에서 생성된 작업입니다."
-        }
-    ]
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "C: prepare output directory",
+      "type": "shell",
+      "command": "mkdir",
+      "args": [
+        "-p",
+        "${workspaceFolder}/Data-Structures/build/${fileDirnameBasename}"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "type": "shell",
+      "label": "C/C++: gcc build active file",
+      "command": "/usr/bin/gcc",
+      "args": [
+        "-g",
+        "${file}",
+        "-o",
+        "${workspaceFolder}/Data-Structures/build/${fileDirnameBasename}/${fileBasenameNoExtension}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "dependsOn": "C: prepare output directory",
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "detail": "Build the active C file into Data-Structures/build."
+    },
+    {
+      "type": "cppbuild",
+      "label": "C/C++: gcc 활성 파일 빌드",
+      "command": "/usr/bin/gcc",
+      "args": [
+        "-fdiagnostics-color=always",
+        "-g",
+        "${file}",
+        "-o",
+        "${workspaceFolder}/Data-Structures/build/${fileDirnameBasename}/${fileBasenameNoExtension}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "dependsOn": "C: prepare output directory",
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "detail": "디버거에서 생성된 작업을 build 폴더 출력으로 덮어씁니다."
+    }
+  ]
 }
