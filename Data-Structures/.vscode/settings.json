@@ -1,0 +1,17 @@
+{
+  "files.exclude": {
+    "**/build": true
+  },
+  "search.exclude": {
+    "**/build": true
+  },
+  "files.watcherExclude": {
+    "**/build/**": true
+  },
+  "code-runner.runInTerminal": true,
+  "code-runner.ignoreSelection": true,
+  "code-runner.fileDirectoryAsCwd": false,
+  "code-runner.executorMap": {
+    "c": "mkdir -p \"$workspaceRoot/build/$fileDirnameBasename\" && gcc -g \"$fullFileName\" -o \"$workspaceRoot/build/$fileDirnameBasename/$fileNameWithoutExt\" && \"$workspaceRoot/build/$fileDirnameBasename/$fileNameWithoutExt\""
+  }
+}
